@@ -11,8 +11,8 @@
 #define RING2_PIN 7
 #define RING3_PIN 8
 #define NUM_PIXELS_RING1 16 // Adjust to the number of LEDs in Ring 1
-#define NUM_PIXELS_RING2 16 // Adjust to the number of LEDs in Ring 2
-#define NUM_PIXELS_RING3 16 // Adjust to the number of LEDs in Ring 3
+#define NUM_PIXELS_RING2 24 // Adjust to the number of LEDs in Ring 2
+#define NUM_PIXELS_RING3 24 // Adjust to the number of LEDs in Ring 3
 
 // DFPlayer Mini
 #define DFPLAYER_RX 10
@@ -28,7 +28,7 @@ SoftwareSerial dfplayerSerial(DFPLAYER_RX, DFPLAYER_TX);
 
 void setup()
 {
-    pinMode(TOUCH_SENSOR_PIN, INPUT);
+    pinMode(TOUCH_SENSOR_PIN, INPUT_PULLUP);
     pinMode(BUZZER_PIN, OUTPUT);
 
     // Initialize Neopixels
@@ -48,7 +48,7 @@ void setup()
 void loop()
 {
     // Check if the touch sensor is triggered
-    if (digitalRead(TOUCH_SENSOR_PIN) == HIGH)
+    if (digitalRead(TOUCH_SENSOR_PIN) == LOW)
     {
         // Play sound
         mp3_play(1); // Play the first sound file on the SD card
