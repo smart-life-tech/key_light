@@ -1,10 +1,21 @@
 #include <Adafruit_NeoPixel.h>
 #include <SoftwareSerial.h>
 #include <DFPlayer_Mini_Mp3.h>
-
+//- CapacitiveSensor library by Paul Badger
+//  https://www.arduino.cc/reference/en/libraries/capacitivesensor/
+// import the library (must be located in the Arduino/libraries directory)
+#include <CapacitiveSensor.h>
 // Pin Definitions
 #define TOUCH_SENSOR_PIN 2
 #define BUZZER_PIN 9
+// create an instance of the library
+// pin 4 sends electrical energy
+// pin 2 senses senses a change
+CapacitiveSensor capSensor = CapacitiveSensor(10, TOUCH_SENSOR_PIN);
+
+// threshold for turning the lamp on
+int threshold = 2000;
+int threshold2 = 1000;
 
 // Neopixel Rings
 #define RING1_PIN 6
@@ -48,7 +59,13 @@ void setup()
 void loop()
 {
     // Check if the touch sensor is triggered
-    if (digitalRead(TOUCH_SENSOR_PIN) == LOW)
+    // store the value reported by the sensor in a variable
+    long sensorValue = capSensor.capacitiveSensor(30);
+
+    // print out the sensor value
+    Serial.println(sensorValue);
+
+    if (sensorValue > threshold)
     {
         // Play sound
         mp3_play(1); // Play the first sound file on the SD card
