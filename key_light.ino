@@ -6,7 +6,7 @@
 // import the library (must be located in the Arduino/libraries directory)
 #include <CapacitiveSensor.h>
 // Pin Definitions
-#define TOUCH_SENSOR_PIN 2
+#define TOUCH_SENSOR_PIN 5
 #define BUZZER_PIN 9
 // create an instance of the library
 // pin 4 sends electrical energy
@@ -18,16 +18,16 @@ int threshold = 2000;
 int threshold2 = 1000;
 
 // Neopixel Rings
-#define RING1_PIN 6
-#define RING2_PIN 7
-#define RING3_PIN 8
+#define RING1_PIN 2
+#define RING2_PIN 3
+#define RING3_PIN 4
 #define NUM_PIXELS_RING1 16 // Adjust to the number of LEDs in Ring 1
 #define NUM_PIXELS_RING2 24 // Adjust to the number of LEDs in Ring 2
 #define NUM_PIXELS_RING3 24 // Adjust to the number of LEDs in Ring 3
 
 // DFPlayer Mini
-#define DFPLAYER_RX 10
-#define DFPLAYER_TX 11
+#define DFPLAYER_RX 6
+#define DFPLAYER_TX 7
 
 // Initialize Neopixel
 Adafruit_NeoPixel ring1 = Adafruit_NeoPixel(NUM_PIXELS_RING1, RING1_PIN, NEO_GRB + NEO_KHZ800);
