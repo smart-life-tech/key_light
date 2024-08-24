@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 #include <SoftwareSerial.h>
-#include <DFPlayer_Mini_Mp3.h>
+#include <DFPlayer_Mini_Mp3.h>//https://github.com/DFRobot/DFPlayer-Mini-mp3/archive/refs/heads/master.zip
 //- CapacitiveSensor library by Paul Badger
 //  https://www.arduino.cc/reference/en/libraries/capacitivesensor/
 // import the library (must be located in the Arduino/libraries directory)
