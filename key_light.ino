@@ -9,8 +9,8 @@
 #define TOUCH_SENSOR_PIN 5
 #define BUZZER_PIN 9
 // create an instance of the library
-// pin 4 sends electrical energy
-// pin 2 senses senses a change
+// pin 10 sends electrical energy
+// pin 5 senses senses a change
 CapacitiveSensor capSensor = CapacitiveSensor(10, TOUCH_SENSOR_PIN);
 
 // threshold for turning the lamp on
