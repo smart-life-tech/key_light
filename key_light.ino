@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 #include <SoftwareSerial.h>
-#include <DFPlayer_Mini_Mp3.h>//https://github.com/DFRobot/DFPlayer-Mini-mp3/archive/refs/heads/master.zip
+#include <DFPlayer_Mini_Mp3.h> //https://github.com/DFRobot/DFPlayer-Mini-mp3/archive/refs/heads/master.zip
 //- CapacitiveSensor library by Paul Badger
 //  https://www.arduino.cc/reference/en/libraries/capacitivesensor/
 // import the library (must be located in the Arduino/libraries directory)
@@ -13,7 +13,7 @@
 // pin 5 senses senses a change
 CapacitiveSensor capSensor = CapacitiveSensor(10, TOUCH_SENSOR_PIN);
 
-// threshold for turning the lamp on
+// threshold for turning the music activity  on
 int threshold = 2000;
 int threshold2 = 1000;
 
@@ -39,6 +39,7 @@ SoftwareSerial dfplayerSerial(DFPLAYER_RX, DFPLAYER_TX);
 
 void setup()
 {
+    Serial.begin(9600);
     pinMode(TOUCH_SENSOR_PIN, INPUT_PULLUP);
     pinMode(BUZZER_PIN, OUTPUT);
 
@@ -54,6 +55,8 @@ void setup()
     dfplayerSerial.begin(9600);
     mp3_set_serial(dfplayerSerial); // Set serial for DFPlayer
     mp3_set_volume(20);             // Set volume (0 to 30)
+                                    // Play sound
+    mp3_play(1);                    // Play the first sound file on the SD card
 }
 
 void loop()
