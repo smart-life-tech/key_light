@@ -57,6 +57,7 @@ void setup()
     mp3_set_volume(20);             // Set volume (0 to 30)
                                     // Play sound
     mp3_play(1);                    // Play the first sound file on the SD card
+    digitalWrite(BUZZER_PIN, HIGH);
 }
 
 void loop()
@@ -74,14 +75,15 @@ void loop()
         mp3_play(1); // Play the first sound file on the SD card
 
         // Turn on Buzzer
-        digitalWrite(BUZZER_PIN, HIGH);
+        digitalWrite(BUZZER_PIN, LOW);
 
         // Change LED colors to green
         setRingColor(ring1, ring1.Color(0, 255, 0)); // Green
         setRingColor(ring2, ring2.Color(0, 255, 0)); // Green
         setRingColor(ring3, ring3.Color(0, 255, 0)); // Green
         delay(2000);                                 // Hold green for 2 seconds
-
+                                                     // Turn off Buzzer
+        digitalWrite(BUZZER_PIN, HIGH);
         // Strobe effect for the lower RGB light
         for (int i = 0; i < 5; i++)
         {
@@ -90,9 +92,6 @@ void loop()
             setRingColor(ring3, ring3.Color(0, 0, 0)); // Off
             delay(100);
         }
-
-        // Turn off Buzzer
-        digitalWrite(BUZZER_PIN, LOW);
     }
     else
     {
