@@ -75,7 +75,7 @@ void loop()
         mp3_play(1); // Play the first sound file on the SD card
 
         // Turn on Buzzer
-        digitalWrite(BUZZER_PIN, LOW);
+        digitalWrite(BUZZER_PIN, HIGH);
 
         // Change LED colors to green
         setRingColor(ring1, ring1.Color(0, 255, 0)); // Green
