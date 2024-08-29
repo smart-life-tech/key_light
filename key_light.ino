@@ -72,9 +72,11 @@ void loop()
     if (sensorValue > threshold)
     {
         // Play sound
-        mp3_play(1); // Play the first sound file on the SD card
+       // mp3_play(1); // Play the first sound file on the SD card
 
         // Turn on Buzzer
+        digitalWrite(BUZZER_PIN, LOW);
+        delay(50);
         digitalWrite(BUZZER_PIN, HIGH);
 
         // Change LED colors to green
