@@ -83,7 +83,7 @@ void loop()
         setRingColor(ring1, ring1.Color(0, 255, 0)); // Green
         setRingColor(ring2, ring2.Color(0, 255, 0)); // Green
         setRingColor(ring3, ring3.Color(0, 255, 0)); // Green
-        delay(2000);                                 // Hold green for 2 seconds
+       // delay(2000);                                 // Hold green for 2 seconds
                                                      // Turn off Buzzer
         digitalWrite(BUZZER_PIN, HIGH);
         // Strobe effect for the lower RGB light
