@@ -72,7 +72,7 @@ void loop()
     if (sensorValue > threshold)
     {
         // Play sound
-       // mp3_play(1); // Play the first sound file on the SD card
+        // mp3_play(1); // Play the first sound file on the SD card
 
         // Turn on Buzzer
         digitalWrite(BUZZER_PIN, LOW);
@@ -83,7 +83,7 @@ void loop()
         setRingColor(ring1, ring1.Color(0, 255, 0)); // Green
         setRingColor(ring2, ring2.Color(0, 255, 0)); // Green
         setRingColor(ring3, ring3.Color(0, 255, 0)); // Green
-       // delay(2000);                                 // Hold green for 2 seconds
+                                                     // delay(2000);                                 // Hold green for 2 seconds
                                                      // Turn off Buzzer
         digitalWrite(BUZZER_PIN, HIGH);
         // Strobe effect for the lower RGB light
@@ -119,10 +119,20 @@ void pulseEffect(Adafruit_NeoPixel &ring, int red, int green, int blue, float sp
     {
         setRingColor(ring, ring.Color(red * (brightness / 255.0), green * (brightness / 255.0), blue * (brightness / 255.0)));
         delay(speed * 10);
+        long sensorValue = capSensor.capacitiveSensor(30);
+        if (sensorValue > threshold)
+        {
+            break;
+        }
     }
     for (int brightness = 255; brightness >= 0; brightness--)
     {
         setRingColor(ring, ring.Color(red * (brightness / 255.0), green * (brightness / 255.0), blue * (brightness / 255.0)));
         delay(speed * 10);
+        long sensorValue = capSensor.capacitiveSensor(30);
+        if (sensorValue > threshold)
+        {
+            break;
+        }
     }
 }
