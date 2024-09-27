@@ -65,7 +65,8 @@ void loop()
     // Check if the touch sensor is triggered
     // store the value reported by the sensor in a variable
     long sensorValue = capSensor.capacitiveSensor(30);
-
+    int threshold = analogRead(A0);
+    threshold = map(threshold, 0, 1023, 0, 5000);
     // print out the sensor value
     Serial.println(sensorValue);
 
