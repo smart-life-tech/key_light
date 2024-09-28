@@ -69,6 +69,7 @@ void loop()
     threshold = map(threshold, 0, 1023, 0, 5000);
     // print out the sensor value
     Serial.println(sensorValue);
+    Serial.println(threshold);
 
     if (sensorValue > threshold)
     {
